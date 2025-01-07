@@ -6,11 +6,25 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    internal struct Employee
+    internal class Employee : IComparable
     {
         public int ID { get; set; }
         public string? Name { get; set; }
         public double Salary { get; set; }
+
+        public int CompareTo(object? obj)
+        {
+            //Employee? employee = (Employee?)obj;
+            //if(obj is Employee employee)
+            //{
+            //    return this.Salary.CompareTo(employee?.Salary);
+            //}
+            //return 1;
+
+            Employee? employee = obj as Employee;
+            return this.Salary.CompareTo(employee?.Salary);
+        }
+
         public override string ToString()
         {
             return $"ID = {ID} , Name = {Name} , Salary = {Salary}";
