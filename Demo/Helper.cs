@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    internal class Helper<T>
+    internal class Helper
     {
-        public static void Swap/*<T>*/(ref T x, ref T y)
-        {
-            T Temp = x;
-            x = y;
-            y = Temp;
-        }
+        #region Swap
+        //public static void Swap/*<T>*/(ref T x, ref T y)
+        //{
+        //    T Temp = x;
+        //    x = y;
+        //    y = Temp;
+        //}
         //public static void Swap (ref int x , ref int y )
         //{
         //    int Temp = x;
@@ -31,6 +32,24 @@ namespace Demo
         //    Point Temp = x;
         //    x = y;
         //    y = Temp;
-        //}
+        //} 
+        #endregion
+
+        #region Search Array
+        public static int SearchArray<T>(T[] Arr, T value)
+        {
+            if (Arr is not null)
+            {
+                for (int i = 0; i < Arr.Length; i++)
+                {
+                    if (Arr[i].Equals(value))
+                    {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        }
+        #endregion
     }
 }
